@@ -1,0 +1,34 @@
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+
+# ── Production build ──────────────────────────────────────────────────────────
+build/
+
+# ── Environment variables ─────────────────────────────────────────────────────
+# Local overrides must never be committed (may contain API keys, proxy targets, etc.)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ── TypeScript ────────────────────────────────────────────────────────────────
+# Incremental compilation cache
+*.tsbuildinfo
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+coverage/
+
+# ── CRA / react-scripts ───────────────────────────────────────────────────────
+# Generated after running `npm run eject`
+# (eject is listed in scripts but should not be used in this project)
+
+# ── ESLint ────────────────────────────────────────────────────────────────────
+.eslintcache
+
+# ── npm ───────────────────────────────────────────────────────────────────────
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+.DS_Store

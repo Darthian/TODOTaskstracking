@@ -1,0 +1,30 @@
+version: '3.8'
+
+# Development compose — brings up the full stack locally.
+# For CI / integration tests use: docker compose -f docker-compose.test.yml up
+#
+# Usage:
+#   docker compose up --build      # start backend + frontend
+#   docker compose down            # stop and remove containers
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/api/tasks || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy

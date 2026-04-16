@@ -1,0 +1,10 @@
+/* Global resets and base typography – component-level styles live in *.css */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+}

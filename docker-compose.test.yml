@@ -1,0 +1,47 @@
+version: '3.8'
+
+# CI compose — builds the full stack and runs Playwright E2E tests.
+#
+# Usage (CI):
+#   docker compose -f docker-compose.test.yml up \
+#     --build --abort-on-container-exit --exit-code-from e2e
+#
+# Local stack-only (skip e2e service):
+#   docker compose -f docker-compose.test.yml up backend frontend --build
+
+services:
+  backend:
+    build:
+      context: ./backend
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/api/tasks || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost/ || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 15s
+
+  e2e:
+    image: mcr.microsoft.com/playwright:v1.44.0-jammy
+    working_dir: /e2e
+    volumes:
+      - ./e2e:/e2e
+    # Install deps then run tests; list reporter works without a TTY in CI
+    command: sh -c "npm ci --silent && npx playwright test --reporter=list"
+    depends_on:
+      frontend:
+        condition: service_healthy
+    environment:
+      BASE_URL: "http://frontend"

@@ -1,0 +1,260 @@
+.task-item {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.task-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.task-item--running {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+
+.task-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.task-item__timer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ─── Status badge ────────────────────────────────────────────────────────── */
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.status-badge--todo {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.status-badge--in_progress {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.status-badge--done {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+/* ─── Timer display ───────────────────────────────────────────────────────── */
+
+.timer-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #475569;
+  min-width: 80px;
+}
+
+.timer-display--active {
+  color: #4f46e5;
+}
+
+.timer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4f46e5;
+  animation: pulse 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ─── Body ───────────────────────────────────────────────────────────────── */
+
+.task-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-item__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+.task-item__description {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #64748b;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.task-item__created {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* ─── Edit form ───────────────────────────────────────────────────────────── */
+
+.task-item__edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edit-input,
+.edit-textarea,
+.edit-select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.edit-input:focus,
+.edit-textarea:focus,
+.edit-select:focus {
+  border-color: #4f46e5;
+}
+
+.edit-textarea {
+  resize: vertical;
+}
+
+.task-item__edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* ─── Error ───────────────────────────────────────────────────────────────── */
+
+.task-item__error {
+  margin: 0;
+  color: #dc2626;
+  font-size: 0.825rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────────────── */
+
+.task-item__footer {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  padding-top: 4px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* ─── Shared button styles ────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn--sm {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+.btn--primary {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.btn--ghost {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+.btn--danger {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.btn--danger:hover:not(:disabled) {
+  background: #fee2e2;
+}
+
+.btn--timer {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+}
+
+.btn--start {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.btn--start:hover:not(:disabled) {
+  background: #dcfce7;
+}
+
+.btn--stop {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.btn--stop:hover:not(:disabled) {
+  background: #fee2e2;
+}

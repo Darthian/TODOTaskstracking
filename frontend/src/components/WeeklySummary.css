@@ -1,0 +1,161 @@
+.weekly-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ─── Navigation ──────────────────────────────────────────────────────────── */
+
+.weekly-summary__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.weekly-summary__week-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.week-range {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.current-week-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #4f46e5;
+  background: #eef2ff;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.nav-btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #475569;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ─── Grand total ─────────────────────────────────────────────────────────── */
+
+.weekly-summary__total {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.weekly-summary__total strong {
+  color: #1e293b;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.1rem;
+}
+
+/* ─── State messages ──────────────────────────────────────────────────────── */
+
+.weekly-summary__state {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.weekly-summary__state--error {
+  color: #dc2626;
+}
+
+/* ─── Entries ─────────────────────────────────────────────────────────────── */
+
+.summary-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.summary-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.summary-entry__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.summary-entry__title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summary-entry__time {
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #475569;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.summary-entry__bar-track {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.summary-entry__bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.summary-entry__bar--todo {
+  background: #94a3b8;
+}
+
+.summary-entry__bar--in_progress {
+  background: #4f46e5;
+}
+
+.summary-entry__bar--done {
+  background: #16a34a;
+}

@@ -1,0 +1,61 @@
+# ── Maven (backend) ───────────────────────────────────────────────────────────
+backend/target/
+backend/.mvn/timing.properties
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# ── Node / npm (frontend & e2e) ───────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+e2e/node_modules/
+
+# React production build
+frontend/build/
+
+# ── Playwright ────────────────────────────────────────────────────────────────
+e2e/test-results/
+e2e/playwright-report/
+e2e/.playwright/
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+# Keep Dockerfiles and compose files tracked; ignore generated layer caches.
+.docker/
+
+# ── IntelliJ IDEA ─────────────────────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ── VS Code ───────────────────────────────────────────────────────────────────
+.vscode/
+
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── Windows ───────────────────────────────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Environment / secrets ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
+spring.log
+
+# ── Miscellaneous ─────────────────────────────────────────────────────────────
+*.class
+*.jar
+!backend/pom.xml
+*.war
+*.ear
+*.zip
+*.tar.gz
+.gradle/
