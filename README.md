@@ -1,3 +1,9 @@
+<!--
+Create a project for taks tracking using a BE in Kotlin and the FE in NextJs. It will support start/stop timers and correctly accumulates time across pauses and resumed sessions, with attention to edge cases.
+
+Create a skill named 'timer-logic-scaffold' that given a task entity, generate the start/stop/pause/resume timer state machine, accumulator function, and unit tests for boundary conditions (pause at midnight, resume after restart, etc.).
+-->
+
 # Task Tracker — TODO app with time tracking
 
 ## Stack

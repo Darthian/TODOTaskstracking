@@ -65,7 +65,7 @@ describe('useTimer', () => {
     expect(result.current).toBeGreaterThanOrEqual(65);
 
     act(() => {
-      rerender({ completed: 120, running: false, startedAt: null });
+      rerender({ completed: 120, running: false, startedAt: '' });
     });
 
     expect(result.current).toBe(120);
